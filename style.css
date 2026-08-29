@@ -1,21 +1,20 @@
+div {
+    width: 40%;
+    height: 80%;
+    background-color: #c1dbba;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 10px;
+    vertical-align: top;
+    margin: 0 10px;
+}
 h1 {
     font-size: 50px;
     text-align: center;
     background-color: #4CAF50;
     color: white;
     
-}
-div {
-    width: 40%;
-    height: 80%;
-    background-color: #c1dbba;
-    display: flex;
-    padding-top: 0;
-
-}
-p {
-    font-size: 18px;
-    line-height: 1.5;
 }
 h2 {
     font-size: 40px;
@@ -26,4 +25,19 @@ h3 {
     font-size: 30px;
     text-align: center;
     color: black;
+    width: 100%;
+    display: block;
+}
+h4 {
+    font-size: 24px;
+    text-align: center;
+    color: black;
+    width: 100%;
+    display: block;
+}
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    width: 100%;
+    display: block;
 }
