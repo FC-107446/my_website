@@ -1,2 +1,2 @@
 # my_website
-My personal website for stardance
+This is just a small website about me that I am making for stardance.
