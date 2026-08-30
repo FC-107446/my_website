@@ -1,16 +1,18 @@
 div {
-    width: 40%;
+    width: 49%;
     height: 80%;
     background-color: #c1dbba;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     align-items: normal;
     padding-top: 10px;
     vertical-align: top;
     margin: 0 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
 }
 h1 {
-    font-size: 45px;
+    font-size: 50px;
     text-align: center;
     background-color: #4CAF50;
     color: white;
@@ -39,4 +41,5 @@ p {
     line-height: 1.5;
     width: 100%;
     display: block;
+    text-align: center;
 }
