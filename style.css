@@ -1,5 +1,5 @@
 div {
-    width: 49%;
+    width: 48%;
     height: 80%;
     background-color: #c1dbba;
     display: inline-flex;
@@ -44,11 +44,26 @@ p {
     line-height: 1.5;
     width: 100%;
     text-align: center;
+    padding: 20px 20px 20px 20px;
 }
 img {
     display: block;
     margin-bottom: 20px;
     max-width: 100%;
-    width: 80%;
+    width: 70%;
     align-self: center;
 }
+.one {
+    width: 48%;
+    height: 80%;
+    background-color: #608955;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: normal;
+    padding-top: 10px;
+    vertical-align: top;
+    margin: 0 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
