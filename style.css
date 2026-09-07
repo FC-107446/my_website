@@ -86,45 +86,6 @@ img {
     box-sizing: border-box;
     margin-top: 20px;
 }
-.three {
-    width: calc(50% - 40px);
-    height: 600px;
-    background-color: #0c2c04;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    vertical-align: top;
-    margin: 16px;
-    box-sizing: border-box;
-    margin-top: 20px;
-}
-.four {
-    width: calc(50% - 40px);
-    height: 600px;
-    background-color: #0c2c04;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    vertical-align: top;
-    margin: 16px;
-    box-sizing: border-box;
-    margin-top: 20px;
-}
-.five {
-    width: calc(50% - 40px);
-    height: 600px;
-    background-color: #0c2c04;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    vertical-align: top;
-    margin: 16px;
-    box-sizing: border-box;
-    margin-top: 20px;
-}
 video {
     display: block;
     margin-bottom: 20px;
