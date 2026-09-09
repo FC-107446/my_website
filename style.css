@@ -1,7 +1,8 @@
 div {
     width: calc(50% - 40px);
-    height: 600px;
-    overflow: auto;
+    height: auto;
+    min-height: 600px;
+    overflow: visible;
     overflow-wrap: break-word;
     background-color: #c1dbba;
     display: inline-flex;
@@ -14,15 +15,16 @@ div {
     margin-top: 20px;
 }
 h1 {
-    font-size: 70px;
+    font-size: 100px;
     text-align: center;
     background-color: #4CAF50;
     color: white;
 }
 h2 {
-    font-size: 50px;
+    font-size: 55px;
     text-align: center;
     color: rgb(0, 0, 0);
+    width: 90%;
 }
 h3 {
     font-size: 30px;
@@ -62,7 +64,8 @@ img {
 }
 .one {
     width: calc(50% - 40px);
-    height: 600px;
+    height: auto;
+    min-height: 600px;
     background-color: #608955;
     display: inline-flex;
     flex-direction: column;
