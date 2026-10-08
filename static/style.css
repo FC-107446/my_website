@@ -83,3 +83,12 @@ video {
     width: 70%;
     align-self: center;
 }
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
