@@ -1,5 +1,5 @@
 # my_website
-This is just a small website about me that I am making for stardance.
+This is just a small website about me that I am making for terra.
 
 This is one of my first times using HTML and CSS.
 
