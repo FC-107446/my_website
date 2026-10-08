@@ -1,14 +1,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>My Website</title>
 </head>
 <body>
-    <h1>My Website</h1>
-    <h2>This is my personal website, made for stardance.</h2>
+    <header>
+        <h1>Welcome to My Website</h1>
+        <h2>A personal space for projects, interests, and ideas</h2>
+    </header>
 
-    <div class="one">
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">My Projects</a></li>
+            <li><a href="#interests">My Interests</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="one" id="about">
         <h3>About Me</h3><br>
         <h4>This is a brief description of who I am and what I do.</h4>
         <p>This is a website that I made for stardance. I am a student in Auckland, New Zealand. I like computer science and programming. I also like to read books and play board games. I am currently learning how to code in HTML, CSS, and JavaScript. 
@@ -22,7 +33,7 @@
         Morbi ipsum nisi, posuere eu dictum at, euismod nec mauris. Ut a tellus non urna molestie finibus. Proin hendrerit aliquet urna euismod molestie. Fusce sed pellentesque sapien. Vivamus et blandit erat. Proin eget varius magna, id faucibus mauris. Sed in placerat tellus.</p>
     </div>
 
-    <div>
+    <div id="projects">
         <h3>My Projects</h3><br>
         <h4>Here are some of the projects I've worked on.</h4>
         <p>I have worked on several projects, including getting home assistant working, running pi-hole, hosting my own AI, making this website, and odoo (still in progress).
@@ -36,7 +47,7 @@
         Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus tempus sollicitudin pharetra. Mauris augue risus, sagittis id ornare a, faucibus tincidunt mauris. Sed eget pretium mi, ac dapibus lorem. Integer at justo nunc. Fusce eget urna convallis mauris bibendum ultrices. Nulla id suscipit dui, at vestibulum quam. Aliquam luctus dolor id magna congue, vel imperdiet ante sodales. Integer lacinia at nisl ullamcorper gravida. Proin arcu justo, convallis vitae enim sed, faucibus fermentum purus. Donec iaculis justo vel elit accumsan, ac tincidunt erat suscipit. Quisque euismod purus eu diam semper, id luctus dui elementum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam quis quam fringilla, aliquet dui quis, semper ex. Fusce pellentesque, ipsum sit amet ornare aliquet, ante mauris accumsan tortor, vitae aliquam velit nibh quis nisl. In sagittis varius velit, ut posuere dui laoreet eget.</p>
     </div>
 
-    <div>
+    <div id="interests">
         <h3>My Interests</h3><br>
         <h4>Here are some of the things I like to do in my free time.</h4>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXBql5Rtey_wjSsovr0NtLRl8JxD3jeOSrWcAjNo-oRg&s=10.png" alt="Pi">
@@ -46,7 +57,7 @@
         </video>
     </div>
 
-    <div class="one">
+    <div class="one" id="contact">
         <h3>Contact Me</h3><br>
         <h4>If you want to get in touch with me, here's how.</h4>
         <p>Please don't. I don't want random people like you sending me messages.</p>
