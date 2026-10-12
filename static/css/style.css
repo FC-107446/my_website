@@ -1,4 +1,8 @@
+
 h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    letter-spacing: 2px;
     font-size: 80px;
     text-align: center;
     background-color: #4CAF50;
@@ -7,11 +11,13 @@ h1 {
 }
 h2 {
     font-size: 35px;
+    font-family: Georgia, "Times New Roman", serif;
     text-align: center;
     color: rgb(0, 0, 0);
     margin: 10px;
     width: 100%;
     margin-top: 0px;
+    
 }
 h3 {
     font-size: 30px;
@@ -40,7 +46,6 @@ p {
     padding: 20px;
     margin: 0 auto;
     box-sizing: border-box;
-
 }
 img {
     display: block;
@@ -64,6 +69,7 @@ img {
     margin: 16px;
     box-sizing: border-box;
     margin-top: 20px;
+
     border-radius: 20px;
     transition: filter 0.2s ease;
 }
@@ -100,8 +106,9 @@ footer {
     text-align: center;
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
-    margin-top: 15px;
+    padding: 15px 0;
 }
 header {
     padding: 10px 10px 10px 10px;
@@ -148,6 +155,7 @@ nav a:hover, nav a:focus {
     align-items: stretch;
     gap: 20px;
     padding: 20px;
+    margin-bottom: 100px;
 }
 .gallery {
     width: auto;
@@ -190,3 +198,20 @@ div {
     border-radius: 20px;
     transition: filter 0.2s ease;
 }
+body {
+    padding-bottom: 60px;
+}
+.footertext {
+    font-size: 18px;
+    line-height: 1.5;
+    /* Line 200! I didn't think it would be this long.*/
+    width: 90%;
+    text-align: center;
+}
+error {
+    font-size: 18px;
+    line-height: 1.5;
+    width: 90%;
+    text-align: center;
+    color: red;
+} 
