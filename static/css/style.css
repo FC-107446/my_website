@@ -208,10 +208,11 @@ body {
     width: 90%;
     text-align: center;
 }
-error {
+.error {
     font-size: 18px;
     line-height: 1.5;
     width: 90%;
     text-align: center;
     color: red;
-} 
+    font-weight: bold;
+}
