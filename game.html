@@ -57,10 +57,10 @@
 		levels[2].platforms.push({x:760,y:165,w:110,h:18,solid:true},{x:1110,y:150,w:100,h:18,solid:true},{x:1460,y:125,w:100,h:18,solid:true},{x:1650,y:75,w:150,h:18,solid:true});
 		levels[2].goal={x:1700,y:20,w:28,h:55};
 		levels[2].platforms.push({x:600,y:190,w:105,h:18,moving:{axis:'x',range:85,speed:.032,phase:1}},{x:1250,y:150,w:105,h:18,moving:{axis:'y',range:65,speed:.026,phase:2.5}});
-		let platforms, goal, coinSpots, enemies, chasers, bouncers, player, camera, won, coins, particles, level;
+		let platforms, goal, coinSpots, enemies, chasers, bouncers, player, camera, won, coins, particles, level, spawnGrace;
 
 		function reset() { level=0; won=false; loadLevel(); }
-		function loadLevel() {
+		function loadLevel() { 
 			const data = levels[level];
 			platforms = data.platforms.map(p => ({...p, baseX:p.x, baseY:p.y, t:p.moving?.phase||0}));
 			goal = data.goal;
@@ -78,6 +78,9 @@
 			];
 
 			player={x:40,y:408,w:28,h:42,vx:0,vy:0,onGround:true};
+			// Give the player a moment to leave the spawn point before hazards can
+			// trigger another reload. This also prevents a reload loop after a hit.
+			spawnGrace=90;
 			camera=0;
 			coins=coinSpots.map(c=>({...c,got:false}));
 			particles=[];
@@ -86,6 +89,7 @@
 		function hit(a,b) { return a.x < b.x+b.w && a.x+a.w > b.x && a.y < b.y+b.h && a.y+a.h > b.y; }
 		function update() {
 			if (won) return;
+			if (spawnGrace > 0) spawnGrace--;
 			const left=keys['a']||keys['arrowleft'], right=keys['d']||keys['arrowright'];
 			const carried = player.onGround && platforms.find(p=>Math.abs(player.y+player.h-p.y)<1 && player.x+player.w>p.x && player.x<p.x+p.w);
 			for (const p of platforms) if (p.moving) {
@@ -107,11 +111,17 @@
 				else if (oldX+player.w<=p.x && player.vx>0) player.x=p.x-player.w;
 				else if (oldX>=p.x+p.w && player.vx<0) player.x=p.x+p.w;
 			}
+			for (const c of chasers) {
+				const direction = Math.sign(player.x - c.x);
+				c.x += direction * c.speed;
+				c.x = Math.max(0, Math.min(levels[level].worldWidth - c.w, c.x));
+			}
+
 			for (const e of enemies) {
 				e.x += e.speed * e.dir;
 				if (e.x<e.min || e.x+e.w>e.max) e.dir*=-1;
 
-				if (hit(player,e)) {
+				if (spawnGrace === 0 && hit(player,e)) {
 					if (player.vy>0 && player.y+player.h-e.y<18) {
 						e.dead=true;
 						player.vy=-8;
@@ -136,15 +146,20 @@
 					b.y = Math.max(75, Math.min(430 - b.h, b.y));
 				}
 
-				if (hit(player, b)) {
+				if (spawnGrace === 0 && hit(player, b)) {
 					loadLevel();
 					return;
 				}
 			}
 
+			for (const c of chasers) if (spawnGrace === 0 && hit(player, c)) {
+				loadLevel();
+				return;
+			}
+
 			for (const c of coins) if (!c.got && Math.hypot(player.x+14-c.x,player.y+20-c.y)<27) { c.got=true; for(let i=0;i<8;i++) particles.push({x:c.x,y:c.y,vx:(Math.random()-.5)*4,vy:-Math.random()*4,life:25}); }
 			if (hit(player,goal) && coins.every(c=>c.got)) { if (level<levels.length-1) { level++; loadLevel(); return; } won=true; }
-			if (player.y>H+60) reset();
+			if (player.y>H+60) loadLevel();
 			camera += (player.x-300-camera)*.08; camera=Math.max(0,Math.min(levels[level].worldWidth-W,camera));
 			particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.15;p.life--;}); particles=particles.filter(p=>p.life>0);
 		}
