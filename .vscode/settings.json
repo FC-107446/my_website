@@ -1,3 +1,9 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "chat.tools.terminal.autoApprove": {
+        "/^cd /workspaces/my_website && python3 -c 'from html\\.parser import HTMLParser\nclass Check\\(HTMLParser\\):\n    void=\\{\"area\",\"base\",\"br\",\"col\",\"embed\",\"hr\",\"img\",\"input\",\"link\",\"meta\",\"param\",\"source\",\"track\",\"wbr\"\\}\n    def __init__\\(self\\): super\\(\\)\\.__init__\\(\\); self\\.stack=\\[\\]; self\\.tags=\\[\\]\n    def handle_starttag\\(self, tag, attrs\\):\n        self\\.tags\\.append\\(tag\\)\n        if tag not in self\\.void: self\\.stack\\.append\\(tag\\)\n    def handle_startendtag\\(self, tag, attrs\\): self\\.tags\\.append\\(tag\\)\n    def handle_endtag\\(self, tag\\):\n        if not self\\.stack or self\\.stack\\.pop\\(\\) != tag: raise SystemExit\\(\"unbalanced tag\"\\)\np=Check\\(\\); p\\.feed\\(open\\(\"photos\\.html\", encoding=\"utf-8\"\\)\\.read\\(\\)\\)\nassert not p\\.stack, p\\.stack\nassert p\\.tags\\.count\\(\"header\"\\) == 1 and p\\.tags\\.count\\(\"nav\"\\) == 1 and p\\.tags\\.count\\(\"ul\"\\) == 1 and p\\.tags\\.count\\(\"li\"\\) == 5\nprint\\(\"HTML structure check passed\"\\)' && git --no-pager diff -- photos\\.html$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
 }

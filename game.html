@@ -27,14 +27,13 @@
 		ctx.imageSmoothingEnabled = false;
 		const W = canvas.width, H = canvas.height;
 		const keys = {};
-		addEventListener('keydown', e => { keys[e.key.toLowerCase()] = true; if (['arrowleft','arrowright','arrowup',' '].includes(e.key.toLowerCase())) e.preventDefault(); if (e.key.toLowerCase() === 'r') reset(); });
-		addEventListener('keyup', e => keys[e.key.toLowerCase()] = false);
-
-		const levels = [
-			{name:'Cloudline Run', worldWidth:2100, platforms:[
-				{x:0,y:450,w:2100,h:50},{x:90,y:370,w:150,h:18},{x:300,y:305,w:145,h:18},
-				{x:520,y:390,w:130,h:18},{x:700,y:315,w:145,h:18},{x:570,y:210,w:130,h:18},
+		let jumpPressed = false;
+		addEventListener('keydown', e => { const key=e.key.toLowerCase(); if (!e.repeat && ['w','arrowup',' '].includes(key)) jumpPressed=true; keys[key] = true; if (['arrowleft','arrowright','arrowup',' '].includes(key)) e.preventDefault(); if (key === 'r') reset(); });
+		addEventListener('keyup', e => { keys[e.key.toLowerCase()] = false; });
+		const levels = [{name:'Cloud Circuit', worldWidth:1600, platforms:[
+				{x:0,y:450,w:1600,h:50},{x:80,y:360,w:140,h:18},{x:250,y:290,w:120,h:18},{x:480,y:360,w:120,h:18},
 				{x:335,y:150,w:125,h:18},{x:125,y:225,w:120,h:18},{x:900,y:365,w:145,h:18},{x:1090,y:285,w:150,h:18},{x:1300,y:200,w:150,h:18},{x:1450,y:320,w:50,h:18}],
+			goal:{x:1360,y:30,w:28,h:55},
 				coins:[{x:150,y:190},{x:370,y:270},{x:580,y:355},{x:755,y:280},{x:625,y:175},{x:970,y:330},{x:1160,y:250},{x:1380,y:160}],
 				enemies:[{x:180,y:328,w:28,h:42,min:100,max:220,speed:1.2},{x:545,y:348,w:28,h:42,min:520,max:620,speed:1},{x:930,y:323,w:28,h:42,min:900,max:1015,speed:1.2},{x:1120,y:243,w:28,h:42,min:1090,max:1220,speed:1}]},
 			{name:'Sunset Lift', worldWidth:2100, platforms:[
@@ -74,7 +73,7 @@
 			];
 
 			chasers = [
-				{x:700 + level * 120, y:408, w:30, h:42, speed:0.3}
+				{x:700 + level * 120, y:260, w:30, h:42, speed:0.3}
 			];
 
 			player={x:40,y:408,w:28,h:42,vx:0,vy:0,onGround:true};
@@ -84,6 +83,15 @@
 			camera=0;
 			coins=coinSpots.map(c=>({...c,got:false}));
 			particles=[];
+		}
+		function respawnPlayer() {
+			player.x=40;
+			player.y=408;
+			player.vx=0;
+			player.vy=0;
+			player.onGround=true;
+			spawnGrace=90;
+			camera=0;
 		}
 		reset();
 		function hit(a,b) { return a.x < b.x+b.w && a.x+a.w > b.x && a.y < b.y+b.h && a.y+a.h > b.y; }
@@ -100,7 +108,8 @@
 				if (p===carried) { player.x += p.x-oldX; player.y += p.y-oldY; }
 			}
 			player.vx = (right-left)*4.4; player.vy += .55; if (player.vy > 14) player.vy=14;
-			if ((keys['w']||keys['arrowup']||keys[' ']) && player.onGround) { player.vy=-11; player.onGround=false; }
+			if (jumpPressed && player.onGround) { player.vy=-11; player.onGround=false; }
+			jumpPressed=false;
 			const oldX=player.x, oldY=player.y, oldBottom=player.y+player.h;
 			player.x += player.vx; player.x=Math.max(0,Math.min(levels[level].worldWidth-player.w,player.x));
 			player.y += player.vy; player.onGround=false;
@@ -126,7 +135,7 @@
 						e.dead=true;
 						player.vy=-8;
 					} else {
-						loadLevel();
+						respawnPlayer();
 						return;
 					}
 				}
@@ -147,19 +156,19 @@
 				}
 
 				if (spawnGrace === 0 && hit(player, b)) {
-					loadLevel();
+					respawnPlayer();
 					return;
 				}
 			}
 
 			for (const c of chasers) if (spawnGrace === 0 && hit(player, c)) {
-				loadLevel();
+				respawnPlayer();
 				return;
 			}
 
 			for (const c of coins) if (!c.got && Math.hypot(player.x+14-c.x,player.y+20-c.y)<27) { c.got=true; for(let i=0;i<8;i++) particles.push({x:c.x,y:c.y,vx:(Math.random()-.5)*4,vy:-Math.random()*4,life:25}); }
 			if (hit(player,goal) && coins.every(c=>c.got)) { if (level<levels.length-1) { level++; loadLevel(); return; } won=true; }
-			if (player.y>H+60) loadLevel();
+			if (player.y>H+60) { respawnPlayer(); return; }
 			camera += (player.x-300-camera)*.08; camera=Math.max(0,Math.min(levels[level].worldWidth-W,camera));
 			particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.15;p.life--;}); particles=particles.filter(p=>p.life>0);
 		}
@@ -225,4 +234,4 @@
 	</script>
 </body>
 </html>
-Enjoy the game! Use the controls to navigate through the levels, collect coins, and reach the goal. Good luck!!
+Enjoy the game! Use the controls to navigate through the levels, collect coins, and reach the goal. Good luck!
