@@ -1,10 +1,15 @@
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My personal website featuring my projects, interests, and photos.">
     <title>My Website</title>
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
+
     <header>
         <h1>Welcome to My Website</h1>
         <h2>A personal space for projects, interests, and ideas</h2>
@@ -20,60 +25,92 @@
         </ul>
     </nav>
 
-    <div class="one" id="about">
-        <h3>About Me</h3><br>
-        <h4>This is a brief description of who I am and what I do.</h4>
-        <p>This is a website that I made for stardance, and are now continuing on working on it through Terra. I am a student in Auckland, New Zealand. I like computer science and programming. I also like to read books and play board games. I am currently learning how to code in HTML, CSS, and JavaScript. 
-            <br><br>
-        Nulla luctus magna ipsum, tristique dictum lacus elementum vel. Integer sit amet elementum justo. Nunc cursus felis nulla, eu accumsan orci scelerisque vitae. Vestibulum sit amet gravida est. Vestibulum vestibulum, ante ultrices sodales feugiat, justo lacus vehicula enim, vitae viverra diam libero ut nulla. Donec sollicitudin bibendum purus, ut efficitur ante congue nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a lacus id leo placerat mollis. Curabitur non euismod lectus, a sollicitudin neque. Suspendisse nisl sem, lobortis in magna vitae, luctus pulvinar ligula. Morbi in neque justo. Nulla in dignissim erat, ac aliquam arcu. Vestibulum quis aliquet lorem. Nam sit amet maximus quam. Nunc lacinia urna volutpat tristique posuere. Vestibulum at nisl leo.
-            <br><br>
-        In blandit dictum arcu ut placerat. In convallis ultricies metus eu condimentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer laoreet erat mauris, eu consequat tellus ornare eu. Ut vitae diam elementum, dignissim dolor nec, scelerisque erat. Cras quis euismod metus. Donec a iaculis orci. Aliquam nisi mauris, interdum in pretium et, ullamcorper consequat lectus. Phasellus vitae erat placerat, lacinia ex sit amet, interdum tellus. Aliquam erat volutpat. Vestibulum dictum orci dignissim, eleifend neque non, accumsan diam. Morbi tempus eros a nibh feugiat elementum. Nunc id tortor enim.
-            <br><br>
-        Curabitur luctus ultricies quam non tempus. Mauris urna dui, aliquet a est a, tincidunt aliquam urna. Nulla pellentesque mauris et commodo volutpat. Aenean fermentum dolor eu aliquam facilisis. In aliquam libero sit amet est scelerisque, vitae blandit nisi finibus. Phasellus sed mi et sapien bibendum tincidunt. Curabitur posuere finibus nulla, sit amet varius purus. Donec sed risus eu ex vulputate blandit. Aenean iaculis lobortis urna ac posuere. Aliquam bibendum mattis mi in malesuada. Fusce id nisl lorem. Donec convallis sed eros vel porttitor. Ut nec enim tortor. Aliquam mattis sapien non blandit finibus.
-    </div>
+    <main class="masonry">
 
-    <div class="two" id="projects">
-        <h3>My Projects</h3><br>
-        <h4>Here are some of the projects I've worked on.</h4>
-        <p>I have worked on several projects, including getting home assistant working, running pi-hole, hosting my own AI, making this website, and odoo (still in progress).
-            <br><br>
-        I have also worked on several smaller projects, including making a simple calculator, ping pong app, and a few ESP-32s apps. I have also made a few games, including a simple platformer game. I have also made a few websites, including this one.
-            <br><br>
-        In nec venenatis lorem, quis viverra purus. Etiam iaculis suscipit sem. Suspendisse magna nisi, egestas quis nisi id, congue rutrum sem. Morbi mattis imperdiet velit et laoreet. Nam a est nec enim iaculis mollis. Quisque eget ex condimentum, egestas velit sit amet, pharetra turpis. Donec ac tortor nec sem faucibus blandit. Etiam ligula leo, pretium eget mauris suscipit, fermentum gravida eros. Quisque suscipit consequat arcu. Nunc dui purus, ornare ut sapien quis, ultrices accumsan nisl. Praesent quis magna enim. Vestibulum ultrices felis eget sem vestibulum, non luctus arcu viverra. Phasellus sed fringilla nibh. Praesent molestie ipsum id quam elementum, quis efficitur arcu dignissim. Fusce eget nulla vitae mauris aliquam ultrices vel eu turpis.
-            <br><br>
-        Nulla luctus finibus tincidunt. Integer ligula diam, congue scelerisque commodo non, convallis nec quam. Integer pretium tellus sed ex venenatis, vel placerat mauris cursus. Vestibulum hendrerit auctor sapien sed ultricies. Vestibulum vitae rutrum ligula, nec interdum odio. Nunc sit amet molestie leo. Vivamus dictum ligula nec nunc semper, vitae sollicitudin dui lobortis.
-    </div>
+        <section class="one" id="about">
+            <h3>About Me</h3>
+            <h4>This is a brief description of who I am and what I do.</h4>
 
-    <div class="two" id="interests">
-        <h3>My Interests</h3><br>
-        <h4>Here are some of the things I like to do in my free time.</h4>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXBql5Rtey_wjSsovr0NtLRl8JxD3jeOSrWcAjNo-oRg&s=10.png" alt="Pi">
-        <br><br>
-        <video controls width="800" aria-label="Sample video">
-            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-        </video>
-    </div>
+            <p>
+                This is a website that I made for stardance, and am now
+                continuing to work on through Terra. I am a student in
+                Auckland, New Zealand. I like computer science and
+                programming. I also like to read books and play board games.
+                I am currently learning how to code in HTML, CSS, and
+                JavaScript. I am also learning how to use Git and GitHub.
+                I am currently working on a few projects, including a
+                website for my school, a simple calculator, and a few
+                ESP32 apps. I am also working on a few games, including
+                a simple platformer game. I am also working on a few
+                websites, including this one.
+            </p>
+        </section>
 
-    <div class="one" id="contact">
-        <h3>Contact Me</h3><br>
-        <h4>If you want to get in touch with me, here's how.</h4>
-        <p>Please don't. I don't want random people like you sending me messages.</p>
-    </div>
+        <section class="two" id="projects">
+            <h3>My Projects</h3>
+            <h4>Here are some of the projects I've worked on.</h4>
 
-    <div class="one" id="photos">
-        <h3>Photos</h3><br>
-        <h4>Here are some of my favorite photos.</h4>
-        <p>These are some of the photos that I have taken over the years. I have a few more that I will add later.</p>
-        <a href="photos.html">View Photos</a>
-    </div>
+            <p>
+                I have worked on several projects, including getting Home
+                Assistant working, running Pi-hole, hosting my own AI,
+                making this website, and Odoo, which is still in progress.
+            </p>
 
-	<footer>
-		<p>&copy; 2026 My Website</p>
-	</footer>
+            <p>
+                I have also worked on several smaller projects, including
+                making a simple calculator, ping pong app, and a few ESP32
+                apps. I have also made a few games, including a simple
+                platformer game. I have also made a few websites,
+                including this one.
+            </p>
+        </section>
+
+        <section class="two" id="interests">
+            <h3>My Interests</h3>
+            <h4>Here are some of the things I like to do in my free time.</h4>
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXBql5Rtey_wjSsovr0NtLRl8JxD3jeOSrWcAjNo-oRg&s=10.png"
+                alt="Raspberry Pi"
+                loading="lazy"
+            >
+
+            <video controls preload="metadata" aria-label="Sample video">
+                <source
+                    src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                    type="video/mp4"
+                >
+                Your browser does not support HTML video.
+            </video>
+        </section>
+
+        <section class="one" id="contact">
+            <h3>Contact Me</h3>
+            <h4>If you want to get in touch with me, here's how.</h4>
+
+            <p>
+                Please don't. I don't want random people like you sending
+                me messages.
+            </p>
+        </section>
+
+        <section class="one" id="photos">
+            <h3>Photos</h3>
+            <h4>Here are some of my favorite photos.</h4>
+
+            <p>
+                These are some of the photos that I have taken over the
+                years. I have a few more that I will add later.
+            </p>
+
+            <a href="photos.html">View Photos</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Website</p>
+    </footer>
 
 </body>
 </html>
-
-
-<!--Comment--> 
-<!--ADD FONTS! .-->
